@@ -1,9 +1,8 @@
-package project.Actions;
+package org.example.project.Actions;
 
-import project.Services.UserService;
+import org.example.project.Services.UserService;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class Order {
 

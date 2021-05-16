@@ -1,4 +1,4 @@
-package project.Services;
+package org.example.project.Services;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

@@ -1,15 +1,14 @@
-package project.Services;
+package org.example.project.Services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
-import project.Exceptions.CouldNotWriteUsersException;
-import project.Exceptions.UserDoesNotExist;
-import project.Exceptions.UsernameAlreadyExistException;
-import project.Exceptions.WrongPassword;
-import project.Actions.Book;
-import project.Actions.User;
+import org.example.project.Actions.User;
+import org.example.project.Exceptions.CouldNotWriteUsersException;
+import org.example.project.Exceptions.UserDoesNotExist;
+import org.example.project.Exceptions.UsernameAlreadyExistException;
+import org.example.project.Exceptions.WrongPassword;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

@@ -1,13 +1,12 @@
-package project.Services;
+package org.example.project.Services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
-import project.Controllers.WritermainController;
-import project.Exceptions.*;
-import project.Actions.Book;
-import project.Actions.User;
+import org.example.project.Controllers.WritermainController;
+import org.example.project.Exceptions.*;
+import org.example.project.Actions.Book;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,7 +20,7 @@ import java.util.Objects;
 public class BookService {
 
     private static List<Book> books;
-    private static final Path BOOKS_PATH = FileSystemService.getPathToFile(new String[]{"config", "books.json"});
+    private static final Path BOOKS_PATH = FileSystemService.getPathToFile(new String[]{"config", "book.json"});
 
     public BookService() {
     }
@@ -37,11 +36,11 @@ public class BookService {
         });
     }
 
-    public static void addBook(String bookname, String imgurl, int quantity, double price, String noPages, int numItems) throws BookAlreadyExists {
+    public static void addBook(String bookname, String imgurl, int quantity, double price, int numItems) throws BookAlreadyExists {
         String writeruser= WritermainController.getWriter().getUsername();
         String writername = WritermainController.getWriter().getName();
         checkBookDoesNotAlreadyExist(bookname,writeruser);
-        books.add(new Book(writername, bookname, writeruser, imgurl, quantity, price, noPages,numItems));
+        books.add(new Book(writername, bookname, writeruser, imgurl, quantity, price, numItems));
         persistBooks();
     }
 
@@ -73,20 +72,20 @@ public class BookService {
     }
     public static List<Book> getBooks(String writeruser)throws Exception {
         BookService.loadBookFromFile();
-        List<Book> prod = new ArrayList<>();
+        List<Book> book = new ArrayList<>();
         for (Book pr : books){
             if (Objects.equals(writeruser, pr.getWriterUsername())){
-                prod.add(pr);
+                book.add(pr);
             }
         }
-        return prod;
+        return book;
 
     }
 
-    public static void updateNumberOfItems (Book pr) throws BookNotInStock{
+    public static void updateNumberOfItems (Book bk) throws BookNotInStock{
 
         for (Book p:books){
-            if(p.equals(pr)){
+            if(p.equals(bk)){
                 if (p.getNoOfItems()!=0){
                     p.setNoOfItems(p.getNoOfItems()-1);
                     BookService.persistBooks();
@@ -97,16 +96,15 @@ public class BookService {
 
     }
 
-    public static void editBook (Book pr, String name, String ImgURL, int quant, int nr, double price, String noPages) {
+    public static void editBook (Book bk, String name, String ImgURL, int quant, int nr, double price) {
         for (Book p: books) {
-            if (p.equals(pr))
+            if (p.equals(bk))
             {
                 p.setBookName(name);
                 p.setImageUrl(ImgURL);
                 p.setQuantity(quant);
                 p.setNoOfItems(nr);
                 p.setPrice(price);
-                p.setnoPages(noPages);
 
                 BookService.persistBooks();
             }
@@ -119,9 +117,9 @@ public class BookService {
         Iterator<Book> iter = books.iterator();
 
         while (iter.hasNext()) {
-            Book pr = iter.next();
+            Book bk = iter.next();
 
-            if (pr.equals(p)) {
+            if (bk.equals(p)) {
                 iter.remove();
                 BookService.persistBooks();
             }

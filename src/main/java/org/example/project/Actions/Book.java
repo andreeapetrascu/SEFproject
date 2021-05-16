@@ -1,4 +1,4 @@
-package project.Actions;
+package org.example.project.Actions;
 
 import javafx.scene.image.Image;
 
@@ -12,20 +12,18 @@ public class Book {
     private String imageUrl;
     private int quantity;
     private double price;
-    private String noPages;
     private int noOfItems;
 
     public Book(){
 
     }
-    public Book(String writerName, String bookName, String writerUsername, String imageUrl, int quantity, double price, String noPages, int noOfItems) {
+    public Book(String writerName, String bookName, String writerUsername, String imageUrl, int quantity, double price, int noOfItems) {
         this.writerName = writerName;
         this.bookName = bookName;
         this.writerUsername = writerUsername;
         this.imageUrl = imageUrl;
         this.quantity = quantity;
         this.price = price;
-        this.noPages=noPages;
         this.noOfItems=noOfItems;
     }
 
@@ -94,13 +92,7 @@ public class Book {
         return Double.toString(price);
     }
 
-    public String getnoPages() {
-        return noPages;
-    }
 
-    public void setnoPages(String noPages) {
-        this.noPages = noPages;
-    }
 
     public void setPrice(double price) {
         this.price = price;
@@ -115,16 +107,15 @@ public class Book {
                 Objects.equals(writerName, book.writerName) &&
                 Objects.equals(bookName, book.bookName) &&
                 Objects.equals(writerUsername, book.writerUsername) &&
-                Objects.equals(imageUrl, book.imageUrl) &&
-                Objects.equals(noPages, book.noPages);
+                Objects.equals(imageUrl, book.imageUrl);
     }
 
     public int hashCode() {
-        return Objects.hash(writerName, bookName, writerUsername, imageUrl, quantity, price, noPages);
+        return Objects.hash(writerName, bookName, writerUsername, imageUrl, quantity, price);
     }
 
     @Override
     public String toString() {
-        return bookName + ", " + quantity + noPages + ", Books on stock: " + noOfItems + ", "  + this.price + "lei";
+        return bookName + ", " + quantity + ", Books on stock: " + noOfItems + ", "  + this.price + "lei";
     }
 }
