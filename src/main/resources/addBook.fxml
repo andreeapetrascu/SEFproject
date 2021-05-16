@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootPane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.project.Controllers.AddBookController">
+    <children>
+        <ImageView fitHeight="585.0" fitWidth="543.0" layoutY="-32.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@books.jpg" />
+            </image>
+        </ImageView>
+        <Label fx:id="userLabel" layoutX="31.0" layoutY="21.0" prefHeight="17.0" prefWidth="218.0" textFill="#9a2929">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Label>
+        <Text fx:id="registrationMessage" layoutX="125.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="291.13671875" />
+        <Button fx:id="cancelButton" layoutX="78.0" layoutY="397.0" mnemonicParsing="false" onAction="#handleCancelAction" prefHeight="25.0" prefWidth="125.0" text="Cancel" />
+        <Button fx:id="addButton" layoutX="309.0" layoutY="397.0" mnemonicParsing="false" onAction="#handleAddAction" prefHeight="25.0" prefWidth="125.0" text="Add Book" />
+        <TextField fx:id="bookNameField" layoutX="275.0" layoutY="214.0" prefHeight="25.0" prefWidth="170.0" promptText="product name" />
+        <Label layoutX="133.0" layoutY="218.0" prefHeight="17.0" prefWidth="93.0" text="Book name:" textFill="#9a2929">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="133.0" layoutY="261.0" prefHeight="17.0" prefWidth="125.0" text="Number of pages:" textFill="#9a2929">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="quantityField" layoutX="275.0" layoutY="257.0" prefHeight="25.0" prefWidth="80.0" promptText="pages" />
+        <Label layoutX="133.0" layoutY="342.0" prefHeight="17.0" prefWidth="80.0" text="Price:" textFill="#9a2929">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="priceField" layoutX="275.0" layoutY="338.0" prefHeight="25.0" prefWidth="170.0" promptText="price" />
+        <ImageView fx:id="bookImage" fitHeight="150.0" fitWidth="200.0" layoutX="103.0" layoutY="38.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+        <Button fx:id="selectImageButton" layoutX="336.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleSelectImage" text="Select Image" />
+        <Text fx:id="addBookMessage" layoutX="129.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="291.13671875" />
+        <Label layoutX="133.0" layoutY="302.0" prefHeight="17.0" prefWidth="108.0" text="Number of books:" textFill="#9a2929">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <TextField fx:id="numProd" layoutX="275.0" layoutY="298.0" prefHeight="25.0" prefWidth="170.0" promptText="number of books in stock" />
+        <Button fx:id="resetImageButton" layoutX="336.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleResetAction" text="Reset Image" />
+    </children>
+</AnchorPane>
