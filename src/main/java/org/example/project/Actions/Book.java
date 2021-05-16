@@ -116,6 +116,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return bookName + ", " + quantity + ", Books on stock: " + noOfItems + ", "  + this.price + "lei";
+        return bookName + ", " + quantity + ", Books on stock: " + noOfItems + ", "  + this.price + " lei";
     }
 }
